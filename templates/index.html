@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DVD Rental Movies</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>DVD Rental Movies</h1>
+
+        <!-- Search Form -->
+        <form action="/search" method="get" class="search-form">
+            <input type="text" name="q" placeholder="Search for a movie" value="{{ query }}">
+            <button type="submit">Search</button>
+        </form>
+
+        <!-- Movies List -->
+        <ul class="movies-list">
+            {% for film in films %}
+            <li class="movie-item">
+                <strong>{{ film[1] }}</strong> - {{ film[2] }}
+                <p>{{ film[3] }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="pagination">
+        {% if page > 1 %}
+        <a href="/page/{{ page - 1 }}" class="prev-button">Previous</a>
+        {% endif %}
+        <a href="/page/{{ page + 1 }}" class="next-button">Next</a>
+    </div>
+
+</body>
+</html>
