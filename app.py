@@ -2,6 +2,8 @@ from flask import Flask, render_template, request
 import psycopg2
 import os
 from urllib.parse import urlparse
+from dotenv import load_dotenv
+
 
 
 app = Flask(__name__)
@@ -9,17 +11,9 @@ app = Flask(__name__)
 # Database connection
 def connect_db():
     database_url = os.getenv("DATABASE_URL")
-    if database_url:
-        result = urlparse(database_url)
-        return psycopg2.connect(
-            database=result.path[1:],
-            user=result.username,
-            password=result.password,
-            host=result.hostname,
-            port=result.port,
-        )
-    else:
+    if not database_url:
         raise Exception("DATABASE_URL is not set.")
+    return psycopg2.connect(database_url)
 
 @app.route("/")
 def index():
