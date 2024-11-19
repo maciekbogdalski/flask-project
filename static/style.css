@@ -1,82 +1,105 @@
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
+    background-color: #f8f9fa; /* Light Bootstrap background */
+    color: #333;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
-    color: #333;
+    padding-top: 56px; /* Account for navbar height */
 }
 
-.container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background: white;
-    border-radius: 8px;
+/* Navbar Customization */
+.navbar {
+    background-color: #000000; /* Completely black navbar */
+    padding: 0.3rem 1rem; /* Slimmer height */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+    color: #ffffff !important; /* White text */
+    font-weight: bold;
+}
+
+.navbar-brand:hover,
+.navbar-nav .nav-link:hover {
+    color: #00aaff !important; /* Light blue on hover */
+}
+
+/* Header */
+h1 {
+    text-align: center;
+    color: #343a40; /* Dark Bootstrap text color */
+    margin: 1.5rem 0 1rem; /* Add space below navbar */
+}
+
+/* Search Form */
+.input-group input {
+    border-radius: 0.25rem;
+    border: 1px solid #ccc;
+}
+
+.input-group button {
+    background-color: #007BFF;
+    color: white;
+}
+
+.input-group button:hover {
+    background-color: #0056b3;
+}
+
+/* Card Styling */
+.card {
+    border: none;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-    text-align: center;
-    color: #444;
+.card-title {
+    font-weight: bold;
+    color: #007BFF;
+    text-align: left; /* Align movie titles to the left */
 }
 
-.search-form {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+.card-title:hover {
+    text-decoration: underline;
+    color: #0056b3;
 }
 
-.search-form input[type="text"] {
-    padding: 8px;
-    width: 70%;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-right: 10px;
+/* Fixing Movie Description and Year */
+.card-text {
+    text-align: left; /* Align description to the left */
+    color: #555; /* Slightly muted color */
 }
 
-.search-form button {
-    padding: 8px 16px;
+/.card-footer {
+    text-align: left;
+    font-weight: bold;
+    color: #007BFF; /* Highlight for the year */
+}
+
+/* Pagination */
+.pagination .page-link {
+    color: #007BFF;
+    border: 1px solid #007BFF;
+    margin: 0 5px;
+    border-radius: 0.25rem;
+}
+
+.pagination .page-link:hover {
     background-color: #007BFF;
     color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
 }
 
-.search-form button:hover {
-    background-color: #0056b3;
-}
-
-.movies-list {
-    list-style: none;
-    padding: 0;
-}
-
-.movie-item {
-    margin-bottom: 15px;
-    padding: 10px;
-    background: #f1f1f1;
-    border-radius: 4px;
-}
-
-.movie-item strong {
-    color: #007BFF;
-}
-
-.pagination {
-    display: flex;
-    justify-content: space-between;
+/* Footer */
+footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
     margin-top: 20px;
 }
 
-.pagination a {
-    text-decoration: none;
-    color: white;
-    background-color: #007BFF;
-    padding: 10px 20px;
-    border-radius: 4px;
-}
-
-.pagination a:hover {
-    background-color: #0056b3;
+/* Adjust container margin for better spacing */
+.container.my-4 {
+    margin-top: 2rem; /* Add more space between navbar and content */
 }

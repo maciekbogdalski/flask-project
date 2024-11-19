@@ -58,6 +58,26 @@ def refresh():
     conn.close()
     return render_template("index.html", films=films, page=1)
 
+@app.route('/film/<int:film_id>')
+def film_detail(film_id):
+    conn = connect_db()
+    cursor = conn.cursor()
+    cursor.execute("""
+        SELECT title, description, release_year, language_id, rental_duration, 
+               rental_rate, length, replacement_cost, special_features, last_update 
+        FROM film WHERE film_id = %s
+    """, (film_id,))
+    film = cursor.fetchone()
+    cursor.close()
+    conn.close()
+
+    if film:
+        return render_template('film_detail.html', film=film)
+    else:
+        return "Film not found", 404
+
+
+
 if __name__ == "__main__":
     import os
     port = int(os.environ.get("PORT", 5000))
